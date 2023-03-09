@@ -1,0 +1,126 @@
+/* Write your CSS here */
+.bg-container {
+  background-color: white;
+  min-height: 100vh;
+  width: 100vw;
+  padding: 50px;
+}
+.manager-app {
+  width: 100%;
+}
+.greetings-card {
+  background-image: url('https://assets.ccbp.in/frontend/react-js/money-manager/money-manager-bg.png');
+  background-size: cover;
+  padding: 35px;
+  border-radius: 20px;
+  font-family: 'roboto';
+  margin-bottom: 20px;
+}
+.username {
+  color: #475569;
+}
+.greetings {
+  color: #475569;
+}
+span {
+  color: #0b69ff;
+}
+.form-history-container {
+  display: flex;
+  flex-direction: column;
+}
+form {
+  padding: 50px;
+  font-family: 'roboto';
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  width: 100%;
+}
+.form-heading {
+  color: #334155;
+  font-size: 25px;
+  margin-bottom: 20px;
+  margin-top: 0;
+}
+label {
+  color: #7e858e;
+  font-size: 14px;
+}
+input {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 5px;
+  margin-top: 6px;
+  margin-bottom: 15px;
+  color: #334155;
+  width: 100%;
+  outline: none;
+}
+select {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #cbd5e1;
+  border-radius: 5px;
+  margin-top: 6px;
+  margin-bottom: 15px;
+  width: 100%;
+  outline: none;
+}
+.add-btn {
+  padding: 10px 15px;
+  color: white;
+  border: none;
+  background-color: #0b69ff;
+  outline: none;
+  cursor: pointer;
+  border-radius: 6px;
+}
+.history-container {
+  padding: 50px;
+  font-family: 'roboto';
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  width: 100%;
+}
+.history-ul {
+  padding: 0;
+}
+.history-li {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  border: 1px solid #cbd5e1;
+  padding-left: 20px;
+  padding-right: 20px;
+  color: #7e858e;
+}
+.title {
+  width: 30%;
+  color: #7e858e;
+}
+.amount {
+  width: 30%;
+  color: #7e858e;
+}
+.type {
+  width: 40%;
+  color: #7e858e;
+}
+.column-heads {
+  color: #334155;
+  font-weight: 700;
+}
+@media (min-width: 768px) {
+  .form-history-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  form {
+    width: 38%;
+  }
+  .history-container {
+    width: 58%;
+  }
+}
