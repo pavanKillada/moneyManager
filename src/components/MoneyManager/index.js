@@ -95,15 +95,7 @@ class MoneyManager extends Component {
   }
 
   render() {
-    const {
-      balance,
-      income,
-      expenses,
-      historyList,
-      title,
-      amount,
-      type,
-    } = this.state
+    const {balance, income, expenses, historyList, title, amount} = this.state
     return (
       <div className="bg-container">
         <div className="manager-app">
@@ -120,6 +112,7 @@ class MoneyManager extends Component {
               <label htmlFor="title-input">TITLE</label>
               <br />
               <input
+                type="text"
                 onChange={this.onTitleChange}
                 value={title}
                 id="title-input"
@@ -129,7 +122,7 @@ class MoneyManager extends Component {
               <label htmlFor="amount-input">AMOUNT</label>
               <br />
               <input
-                type="number"
+                type="text"
                 onChange={this.onAmountChange}
                 value={amount}
                 id="amount-input"
@@ -139,12 +132,12 @@ class MoneyManager extends Component {
               <label htmlFor="type-select">TYPE</label>
               <br />
               <select
-                value={type}
+                defaultValue="INCOME"
                 onChange={this.onTypeChange}
                 id="type-select"
               >
                 {transactionTypeOptions.map(eachOpt => (
-                  <option key={eachOpt.optionId} value={eachOpt.displayText}>
+                  <option key={eachOpt.optionId} value={eachOpt.optionId}>
                     {eachOpt.displayText}
                   </option>
                 ))}

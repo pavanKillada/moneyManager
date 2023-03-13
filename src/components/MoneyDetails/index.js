@@ -5,7 +5,7 @@ const MoneyDetails = props => {
   const {balance, income, expenses} = props
   return (
     <div className="money-details-container">
-      <div data-testid="balanceAmount" className="balance-card">
+      <div className="balance-card">
         <div className="balance-card-img-container">
           <img
             className="balance-card-img"
@@ -15,10 +15,12 @@ const MoneyDetails = props => {
         </div>
         <div className="money-card-details">
           <p>Your Balance</p>
-          <h1 className="money">Rs {balance}</h1>
+          <p data-testid="balanceAmount" className="money">
+            Rs {balance}
+          </p>
         </div>
       </div>
-      <div data-testid="incomeAmount" className="income-card">
+      <div className="income-card">
         <div className="income-card-img-container">
           <img
             className="income-card-img"
@@ -28,10 +30,12 @@ const MoneyDetails = props => {
         </div>
         <div className="money-card-details">
           <p>Your Income</p>
-          <h1 className="money">Rs {income}</h1>
+          <p data-testid="incomeAmount" className="money">
+            Rs {income}
+          </p>
         </div>
       </div>
-      <div data-testid="expensesAmount" className="expenses-card">
+      <div className="expenses-card">
         <div className="expenses-card-img-container">
           <img
             className="expenses-card-img"
@@ -41,7 +45,9 @@ const MoneyDetails = props => {
         </div>
         <div className="money-card-details">
           <p>Your Expenses</p>
-          <h1 className="money">Rs {expenses}</h1>
+          <p data-testid="expensesAmount" className="money">
+            Rs {expenses}
+          </p>
         </div>
       </div>
     </div>

@@ -12,7 +12,7 @@ const TransactionItem = props => {
       <p className="title">{title}</p>
       <p className="amount">Rs {amount}</p>
       <div className="type type-delete-container">
-        <p>{type}</p>
+        <p>{type[0] + type.slice(1).toLowerCase()}</p>
         <button
           className="delete-btn"
           onClick={onDelete}
