@@ -131,3 +131,8 @@ select {
     width: 58%;
   }
 }
+.save-btn-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

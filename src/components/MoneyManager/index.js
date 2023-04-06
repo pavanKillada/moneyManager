@@ -24,7 +24,11 @@ class MoneyManager extends Component {
     historyList: [],
     title: '',
     amount: '',
-    type: 'Income',
+    type: 'INCOME',
+  }
+
+  componentDidMount() {
+    this.setState(JSON.parse(localStorage.getItem('money_manager')))
   }
 
   AddToHistory = event => {
@@ -45,7 +49,7 @@ class MoneyManager extends Component {
       type,
     }
     if (title !== '' && amount !== '') {
-      if (type === 'Income') {
+      if (type === 'INCOME') {
         this.setState({
           balance: balance + parseInt(amount),
           income: income + parseInt(amount),
@@ -63,10 +67,16 @@ class MoneyManager extends Component {
           historyList: [...historyList, newHistoryItem],
           title: '',
           amount: '',
-          type,
+          type: 'INCOME',
         })
       }
     }
+  }
+
+  saveTransactions = () => {
+    localStorage.setItem('money_manager', JSON.stringify(this.state))
+    // eslint-disable-next-line no-alert
+    alert('All Transactions were successfully saved.')
   }
 
   onTitleChange = event => {
@@ -88,19 +98,27 @@ class MoneyManager extends Component {
     this.setState(prevState => ({
       historyList: prevState.historyList.filter(item => item.id !== id),
       balance:
-        histItem.type === 'Income' ? balance - newAmount : balance + newAmount,
-      income: histItem.type === 'Income' ? income - newAmount : income,
-      expenses: histItem.type === 'Income' ? expenses : expenses - newAmount,
+        histItem.type === 'INCOME' ? balance - newAmount : balance + newAmount,
+      income: histItem.type === 'INCOME' ? income - newAmount : income,
+      expenses: histItem.type === 'INCOME' ? expenses : expenses - newAmount,
     }))
   }
 
   render() {
-    const {balance, income, expenses, historyList, title, amount} = this.state
+    const {
+      balance,
+      income,
+      expenses,
+      historyList,
+      title,
+      amount,
+      type,
+    } = this.state
     return (
       <div className="bg-container">
         <div className="manager-app">
           <div className="greetings-card">
-            <h1 className="username">Hi, Richard</h1>
+            <h1 className="username">Hi, Nanna/Amma</h1>
             <p className="greetings">
               Welcome back to your <span>Money Manager</span>
             </p>
@@ -132,7 +150,7 @@ class MoneyManager extends Component {
               <label htmlFor="type-select">TYPE</label>
               <br />
               <select
-                defaultValue="INCOME"
+                value={type}
                 onChange={this.onTypeChange}
                 id="type-select"
               >
@@ -148,7 +166,16 @@ class MoneyManager extends Component {
               </button>
             </form>
             <div className="history-container">
-              <h1 className="form-heading">History</h1>
+              <div className="save-btn-container">
+                <h1 className="form-heading">History</h1>
+                <button
+                  onClick={this.saveTransactions}
+                  className="add-btn"
+                  type="button"
+                >
+                  Save
+                </button>
+              </div>
               <ul className="history-ul">
                 <li className="history-li">
                   <p className="title column-heads">Title</p>
